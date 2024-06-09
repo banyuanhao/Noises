@@ -135,3 +135,16 @@ body {
 
 
 
+.aigc {
+  font-size: 24px; /* 设置字体大小 */
+  color: red; /* 设置字体颜色 */
+  font-weight: bold; /* 设置字体粗细 */
+}
+.research {
+  font-size: 24px;
+  color: blue;
+}
+.collaboration {
+  font-size: 24px;
+  color: black;
+}
