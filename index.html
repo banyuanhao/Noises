@@ -182,13 +182,9 @@
   <p style="font-size: 24px; font-weight: bold;">How to locate Trigger patches: Pre-generation Method</p>
 </div>
 
-<div style="width: 70%; margin: auto;">
-  <p>Given the generated images, we can locate the trigger patches by analyzing the dispersion of object bounding boxes across the images. We propose a posterior analysis technique to identify the trigger patches. Specifically, we calculate the entropy of the bounding box distribution to measure the dispersion of the objects. The entropy of the bounding box distribution is defined as:</p>
-  <p>$\mathcal{H}(X) = \frac{1}{2} \left( \frac{1}{n} \sum_{i=1}^n (x_{c_i} - \bar{x}_c)^2 + \frac{1}{n} \sum_{i=1}^n (y_{c_i} - \bar{y}_c)^2 \right)$</p>
-  <p>where $\: \bar{x}_c = \frac{1}{n} \sum_{i=1}^n x_{c_i},\: \bar{y}_c = \frac{1}{n} \sum_{i=1}^n y_{c_i}$, and $i$ is the box index.</p>
+<div style="width: 70%; margin:auto;">
+  <p>The above posterior method requires generating images to identify trigger patches. Can we detect the trigger patches without running the diffusion process? To answer this question, we try to train a trigger patch detector, which functions similarly to an object detector but operates in the noise space. </p>
 </div>
-
-
 
 <!-- Image carousel -->
 <!-- <section class="hero is-small">
