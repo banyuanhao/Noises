@@ -207,8 +207,9 @@
   <p>We calculate the average entropy for the bounding boxes in these groups to assess the impact of our method on diversity and positional bias. The entropy is similar to the trigger entropy, with higher values indicating greater diversity. Our experimental setup includes generating images from 10 random prompts described by ChatGPT, followed by image generation using diffusion models. The results are as follows:</p>
 </div>
 <img src="static/images/results_diversity.png" alt="Diversity results" style="display: block; margin: auto; width:70%; height:auto;margin-bottom: 20px;">
-
-<!-- Note that Control group by generating images using standard methods without reject-sampling. Additionally, we select Random bounding boxes of size 24$\times$24 from the initial noise. This approach simulates a scenario where all pixels have an equal probability of generating an object, which is our target. -->
+<div style="width: 70%; margin: auto;margin-bottom: 5px;"></div>
+<p> Control: generating images using standard methods without reject-sampling. Random: selecting bounding boxes of size 24$\times$24 from the initial noise. This approach simulates a scenario where all pixels have an equal probability of generating an object, which is our target.</p>
+</div>
 <!-- Image carousel -->
 <!-- <section class="hero is-small">
   <div class="hero-body">
