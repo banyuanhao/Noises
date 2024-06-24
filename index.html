@@ -169,11 +169,13 @@
   <!-- <p>We generate a bunch of images using the same noise and calculate a posterior metric called ``trigger entropy'' to measure the degree of dispersion of the object bounding boxes in the generated images. A lower entropy indicates a higher likelihood that a patch is a trigger patch. The patch in the bottom row has the strongest effectiveness in inducing the generation of the object, while the objects in the top row are dispersed. So there must exist a strong trigger patch in the orange bounding box in the bottom row noise.</p>  -->
   <p>We generate a bunch of images using the same noise and find that the degree of dispersion of the object bounding boxes varies in the generated images. As shown in the figure, the objects in the top row are more dispersed than the bottom row. So there must exist a strong trigger patch in the orange bounding box in the bottom row noise, inducing the ball at the same region. To formulate the degree of dispersion, we define trigger entropy as follows:</p> 
 </div>
+
 <div style="width: 70%; margin: auto;margin-bottom: 20px;">
   <p>The entropy of the bounding box distribution is defined as:</p>
-  <p>$\mathcal{H}(X) = \frac{1}{2} \left( \frac{1}{n} \sum_{i=1}^n (x_{c_i} - \bar{x}_c)^2 + \frac{1}{n} \sum_{i=1}^n (y_{c_i} - \bar{y}_c)^2 \right)$</p>
-  <p>where $\: \bar{x}_c = \frac{1}{n} \sum_{i=1}^n x_{c_i},\: \bar{y}_c = \frac{1}{n} \sum_{i=1}^n y_{c_i}$, and $i$ is the box index.</p>
+  <p>\\(\mathcal{H}(X) = \frac{1}{2} \left( \frac{1}{n} \sum_{i=1}^n (x_{c_i} - \bar{x}_c)^2 + \frac{1}{n} \sum_{i=1}^n (y_{c_i} - \bar{y}_c)^2 \right)\\)</p>
+  <p>where \\(\: \bar{x}_c = \frac{1}{n} \sum_{i=1}^n x_{c_i},\: \bar{y}_c = \frac{1}{n} \sum_{i=1}^n y_{c_i}\\), and \\(i\\) is the box index.</p>
 </div>
+
 
 
 <img src="static/images/Triggerentropy.png" alt="Illustration of Trigger Entropy" style="display: block; margin: auto; width:70%; height:auto;margin-bottom: 20px;">
