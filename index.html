@@ -200,6 +200,20 @@
 </div>
 
 <div style="width: 70%; margin: auto;margin-bottom: 5px;">
+  <p>Our detector can effectively mitigates positional bias, where objects tend to appear in the same location during generation. We employ a rejection sampling method that begins with detecting trigger patches in the initial noise. If the confidence scores of the bounding boxes exceed a predefined threshold, the region within the box is flagged for regeneration. This approach ensures that the noise used for generation is "pure" and free from strong trigger patches that could constrain object placement. The following figure illustrates cases with and without rejection sampling and the latter one shows greaterdiversity in position.<br></p>
+</div>
+<img src="static/images/app_div.png" alt="Diversity results" style="display: block; margin: auto; width:50%; height:auto;margin-bottom: 20px;">
+
+<div style="width: 70%; margin: auto;margin-bottom: 5px;">
+  <p>We define entropy to access the diversity, which is similar to the trigger entropy, with higher values indicating greater diversity. The results are as follows:</p>
+</div>
+<img src="static/images/results_diversity.png" alt="Diversity results" style="display: block; margin: auto; width:70%; height:auto;margin-bottom: 20px;">
+</div>
+<div style="width: 70%; margin: auto; margin-bottom: 5px;"></div>
+<div style="width: 70%; margin: auto;margin-bottom: 5px;"></div>
+<p> Control: generating images using standard methods without reject-sampling. Random: selecting bounding boxes of size 24$\times$24 from the initial noise. This approach simulates a scenario where all pixels have an equal probability of generating an object, which is our target.</p>
+</div>
+<!-- <div style="width: 70%; margin: auto;margin-bottom: 5px;">
   <p>Position bias has significant implications, particularly in synthetic data generation using diffusion models. For instance, when generating an automobile dataset, a model exhibiting position bias might consistently place roadblocks in the left-bottom corner of the image, leading to skewed data.  <br></p>
   <p>To mitigate this, we have developed a method involving the use of the detector for reject sampling. This process begins with the detection of trigger patches in the initial noise. If the confidence scores of the bounding boxes exceed a predefined threshold, the region within the box is flagged for regeneration. Our approach is designed to ensure that the noise used for generation is ``pure'' and has no strong trigger patches that could confine object placement.<br></p>
   <p>We define entropy to access the diversity, which is similar to the trigger entropy, with higher values indicating greater diversity. The results are as follows:</p>
@@ -208,7 +222,7 @@
 
 <div style="width: 70%; margin: auto; margin-bottom: 5px;"></div>
 <p> Control: generating images using standard methods without reject-sampling. Random: selecting bounding boxes of size 24$\times$24 from the initial noise. This approach simulates a scenario where all pixels have an equal probability of generating an object, which is our target.</p>
-</div>
+</div> -->
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
@@ -230,7 +244,7 @@
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-
+image = cv2.imread(img)
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
             You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
