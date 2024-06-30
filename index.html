@@ -196,6 +196,15 @@
 <img src="static/images/distance_entropy.png" alt="Trigger Entropy and Energy Distance" style="display: block; margin: auto; width:35%; height:auto;margin-bottom: 20px;">
 
 <div style="margin-left: 15%;margin-bottom: 10px;">
+  <p style="font-size: 24px; font-weight: bold;">How do trigger patches and initial noises interact with each other</p>
+</div>
+
+<div style="width: 70%; margin: auto;margin-bottom: 5px;">
+  <p>We wonder what happens when the prompts also contain positional information, and how do the prompt and noise interact with each other when they have aligned and contradicted object positions. So we test two initial noises with trigger patches on the left/right and two set of prompts with a template of a {class name} on the left/right. Note that there are three prompt-and-noise pairs. 1) Aligned: with a strong trigger patch on the right, 2) Contradicted: with a strong trigger patch on the left, and 3) Dispersed: with trigger patches dispersed throughout the image. After viewing the generated images, we divided them into four groups: 1) Aligned: The position of the object is aligned with the prompt guidance (On the right side). 2) Contradicted: The position of the object contradicts with the prompt guidance (On the left side). 3) Duplicated: the generated image has two objects on both sides. 4) Hard to judge (Occupying the entire picture, failed generation, or in the middle of the image) The results are as follows:<br></p>
+</div>
+<img src="static/images/interact.png" alt="Diversity results" style="display: block; margin: auto; width:50%; height:auto;margin-bottom: 20px;">
+
+<div style="margin-left: 15%;margin-bottom: 10px;">
   <p style="font-size: 24px; font-weight: bold;">Application: Enhanced location diversity by removing trigger patches</p>
 </div>
 
@@ -208,6 +217,17 @@
   <p>To perform a quantative analysis, we define entropy to access the diversity, which is similar to the trigger entropy, with higher values indicating greater diversity. The results are as follows:</p>
 </div>
 <img src="static/images/bar_chart_app_div.png" alt="Diversity results" style="display: block; margin: auto; width:40%; height:auto;margin-bottom: 20px;">
+
+<div style="margin-left: 15%;margin-bottom: 10px;">
+  <p style="font-size: 24px; font-weight: bold;">Application: Pre-generation position control</p>
+</div>
+
+<div style="width: 70%; margin: auto;margin-bottom: 5px;">
+  <p>
+    Our findings can contribute to controllable generation: just put the trigger patch to the place you want the object to appear. To test the effectiveness of this method, we replace an arbitrary patch in a noise map with the trigger patch and then use the blended noise for generation. We sort the patches in our dataset by trigger entropy and select one every two thousand for this test. We define the injection success rate (ISR) as the ratio of successful injection cases to the total number of cases. There are two baselines as follows. 1) Resampling: Resample Gaussian noise for the target region maintaining the same mean and variance. 2) Random: Select a random patch within a source noise, which might overlap with the trigger patch in the source noise. The results are as follows:
+    <br></p>
+</div>
+<img src="static/images/app_ISR.png" alt="Diversity results" style="display: block; margin: auto; width:50%; height:auto;margin-bottom: 20px;">
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
