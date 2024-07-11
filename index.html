@@ -45,6 +45,7 @@
   <script src="static/js/index.js"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -167,13 +168,13 @@
 </div>
 <div style="width: 70%; margin: auto;margin-bottom: 5px;">
   <!-- <p>We generate a bunch of images using the same noise and calculate a posterior metric called ``trigger entropy'' to measure the degree of dispersion of the object bounding boxes in the generated images. A lower entropy indicates a higher likelihood that a patch is a trigger patch. The patch in the bottom row has the strongest effectiveness in inducing the generation of the object, while the objects in the top row are dispersed. So there must exist a strong trigger patch in the orange bounding box in the bottom row noise.</p>  -->
-  <p>We generate a bunch of images using the same noise and find that the degree of dispersion of the object bounding boxes varies in the generated images. As shown in the figure, the objects in the top row are more dispersed than the bottom row. So there must exist a strong trigger patch in the orange bounding box in the bottom row noise, inducing the ball at the same region. To formulate the degree of dispersion, we first get the center points of the bounding boxes and define trigger entropy as follows:</p> 
+  <p>We generate a bunch of images using the same noise and find that the degree of dispersion of the object bounding boxes varies in the generated images. As shown in the figure, the objects in the top row are more dispersed than the bottom row. So there must exist a strong trigger patch in the orange bounding box in the bottom row noise, inducing the ball at the same region. To formulate the degree of dispersion, we first get the center points ($x_{c_i}$,$y_{c_i}$) of the bounding boxes and define trigger entropy as follows:</p> 
 </div>
 
-<img src="static/images/formula.png" alt="formula" style="display: block; margin: auto; width:40%; height:auto;margin-bottom: 20px;">
+<img src="static/images/formula.png" alt="formula" style="display: block; margin: auto; width:30%; height:auto;margin-bottom: 20px;">
 
 
-<img src="static/images/Triggerentropy.png" alt="Illustration of Trigger Entropy" style="display: block; margin: auto; width:50%; height:auto;margin-bottom: 20px;">
+<img src="static/images/Triggerentropy.png" alt="Illustration of Trigger Entropy" style="display: block; margin: auto; width:40%; height:auto;margin-bottom: 20px;">
 
 
 <div style="margin-left: 15%;margin-bottom: 10px;">
@@ -202,7 +203,7 @@
 <div style="width: 70%; margin: auto;margin-bottom: 5px;">
   <p>We wonder what happens when the prompts also contain positional information, and how do the prompt and noise interact with each other when they have aligned and contradicted object positions. So we test two initial noises with trigger patches on the left/right and two set of prompts with a template of a {class name} on the left/right. Note that there are three prompt-and-noise pairs. 1) Aligned: with a strong trigger patch on the right, 2) Contradicted: with a strong trigger patch on the left, and 3) Dispersed: with trigger patches dispersed throughout the image. After viewing the generated images, we divided them into four groups: 1) Aligned: The position of the object is aligned with the prompt guidance (On the right side). 2) Contradicted: The position of the object contradicts with the prompt guidance (On the left side). 3) Duplicated: the generated image has two objects on both sides. 4) Hard to judge (Occupying the entire picture, failed generation, or in the middle of the image) The results are as follows:<br></p>
 </div>
-<img src="static/images/interact.png" alt="Diversity results" style="display: block; margin: auto; width:50%; height:auto;margin-bottom: 20px;">
+<img src="static/images/interact.png" alt="Diversity results" style="display: block; margin: auto; width:30%; height:auto;margin-bottom: 20px;">
 
 <div style="margin-left: 15%;margin-bottom: 10px;">
   <p style="font-size: 24px; font-weight: bold;">Application: Enhanced location diversity by removing trigger patches</p>
@@ -211,12 +212,12 @@
 <div style="width: 70%; margin: auto;margin-bottom: 5px;">
   <p>Our detector can effectively mitigates positional bias, where objects tend to appear in the same location during generation. We employ a rejection sampling method that begins with detecting trigger patches in the initial noise. If the confidence scores of the bounding boxes exceed a predefined threshold, the region within the box is flagged for regeneration. This approach ensures that the noise used for generation is "pure" and free from strong trigger patches that could constrain object placement. The following figure illustrates cases with and without rejection sampling and the latter one shows greater diversity in position.<br></p>
 </div>
-<img src="static/images/app_div.png" alt="Diversity results" style="display: block; margin: auto; width:50%; height:auto;margin-bottom: 20px;">
+<img src="static/images/app_div.png" alt="Diversity results" style="display: block; margin: auto; width:30%; height:auto;margin-bottom: 20px;">
 
 <div style="width: 70%; margin: auto;margin-bottom: 5px;">
   <p>To perform a quantative analysis, we define entropy to access the diversity, which is similar to the trigger entropy, with higher values indicating greater diversity. The results are as follows:</p>
 </div>
-<img src="static/images/bar_chart_app_div.png" alt="Diversity results" style="display: block; margin: auto; width:40%; height:auto;margin-bottom: 20px;">
+<img src="static/images/bar_chart_app_div.png" alt="Diversity results" style="display: block; margin: auto; width:30%; height:auto;margin-bottom: 20px;">
 
 <div style="margin-left: 15%;margin-bottom: 10px;">
   <p style="font-size: 24px; font-weight: bold;">Application: Pre-generation position control</p>
@@ -227,7 +228,7 @@
     Our findings can contribute to controllable generation: just put the trigger patch to the place you want the object to appear. To test the effectiveness of this method, we replace an arbitrary patch in a noise map with the trigger patch and then use the blended noise for generation. We sort the patches in our dataset by trigger entropy and select one every two thousand for this test. We define the injection success rate (ISR) as the ratio of successful injection cases to the total number of cases. There are two baselines as follows. 1) Resampling: Resample Gaussian noise for the target region maintaining the same mean and variance. 2) Random: Select a random patch within a source noise, which might overlap with the trigger patch in the source noise. The results are as follows:
     <br></p>
 </div>
-<img src="static/images/ISR.png" alt="Diversity results" style="display: block; margin: auto; width:50%; height:auto;margin-bottom: 20px;">
+<img src="static/images/ISR.png" alt="Diversity results" style="display: block; margin: auto; width:35%; height:auto;margin-bottom: 20px;">
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
