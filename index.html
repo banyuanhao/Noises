@@ -47,17 +47,16 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-      .org-banner {
-          width: 150px; /* 固定宽度 */
-          height: 100px; /* 固定高度 */
-          object-fit: cover; /* 保持图片的纵横比并裁剪 */
-      }
-      .section {
-          display: flex;
-          justify-content: space-around; /* 在水平上均匀分布图片 */
-          align-items: center; /* 垂直居中对齐 */
-      }
-  </style>
+    .section {
+        display: flex;
+        justify-content: space-around; /* 在水平上均匀分布图片 */
+        align-items: center; /* 垂直居中对齐 */
+    }
+    .org-banner {
+        height: 100px; /* 固定高度 */
+        width: auto; /* 宽度按比例缩放 */
+    }
+</style>
 </head>
 <body>
 
